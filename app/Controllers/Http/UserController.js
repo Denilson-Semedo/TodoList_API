@@ -34,7 +34,7 @@ class UserController {
 
             return user
         } catch (err) {
-            return response.status(500).send({ error: `Erro: ${err.message}` })
+            return response.status(500).send({ error: `Erro: ${err.message}!!` })
         }
 
     }
@@ -112,14 +112,14 @@ class UserController {
         return user
     }
 
-    async show({ params, request, response}) {
+    async show({ params, request, response }) {
         const user = await User.query().where('id', params.id).first()
 
-        if(!user) {
-            return response.status(404).send({message: 'Nenhum user encontrado'})
-          }
-      
-          return user
+        if (!user) {
+            return response.status(404).send({ message: 'Nenhum user encontrado' })
+        }
+
+        return user
     }
 
 }
